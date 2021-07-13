@@ -1,15 +1,10 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  background-color: #282c34;
+  height: 100vh;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,16 +14,59 @@
 }
 
 input {
+  font-family: inherit;
   font-size: larger;
+  border: none;
+  padding: 10px;
+  border-radius: 50px;
+  outline: none;
 }
 
 button {
+  font-family: inherit;
+  font-weight: 500;
+  padding: 10px 25px;
   font-size: larger;
   margin-left: 15px;
   cursor: pointer;
+  border-radius: 50px;
 }
 
-span {
-  padding: 5px 15px;
-  background-color: orangered;
+p {
+  color: white;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 15px auto;
+}
+
+.chatContainer {
+  overflow-y: scroll;
+  width: 75%;
+  height: 425px;
+}
+
+.chatWrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: teal;
+  width: 150px;
+  border-radius: 10px;
+  margin: 10px auto;
+}
+
+.chatWrapper > span {
+  font-size: smaller;
+  font-weight: 500;
+  color: aqua;
+  margin: 5px 10px;
+  text-align: left;
+}
+
+footer {
+  margin: 10px auto;
 }

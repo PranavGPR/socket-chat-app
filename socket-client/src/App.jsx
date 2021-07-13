@@ -4,7 +4,7 @@ import io from "socket.io-client";
 import { nanoid } from "nanoid";
 
 const socket = io.connect("http://localhost:5000");
-const userName = nanoid(4);
+const id = nanoid(4);
 
 export default function App() {
   const [message, setMessage] = useState("");
@@ -12,7 +12,7 @@ export default function App() {
 
   const sendChat = (e) => {
     e.preventDefault();
-    socket.emit("chat", { message, userName });
+    socket.emit("chat", { message, id });
     setMessage("");
   };
 
@@ -26,14 +26,20 @@ export default function App() {
     <div className='App'>
       <header className='App-header'>
         <h1>Chatty app</h1>
-        {chat.map((value, index) => {
-          return (
-            <div>
-              <span>{value.userName}</span>
-              <p key={index}>{value.message}</p>
-            </div>
-          );
-        })}
+      </header>
+      <main>
+        <div className='chatContainer'>
+          {chat.map((value, index) => {
+            return (
+              <div className='chatWrapper' key={index}>
+                <span>{value.id}</span>
+                <p>{value.message}</p>
+              </div>
+            );
+          })}
+        </div>
+      </main>
+      <footer>
         <form onSubmit={sendChat}>
           <input
             type='text'
@@ -46,7 +52,7 @@ export default function App() {
           />
           <button type='submit'>Send</button>
         </form>
-      </header>
+      </footer>
     </div>
   );
 }
